@@ -12,3 +12,25 @@ Content-Type: application/json
 {
     "numero": 1
 }
+
+#####
+PUT {{api}}/mesas/67ba8fdb67de0878bab5e84b
+Content-Type: application/json
+
+{
+    "numero": 1,
+    "estado": "No disponible"
+}
+
+#####
+GET {{api}}/pedido
+
+####
+POST {{api}}/pedido
+Content-Type: application/json
+
+{
+    "mesa":"67ba8fdb67de0878bab5e84b",
+    "descripcion": "6 de carne, 2 de pollo y 10 de verdura",
+    "total": 12000
+}

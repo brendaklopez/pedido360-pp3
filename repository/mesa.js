@@ -25,3 +25,21 @@ export const agregarMesaRepository = async (nuevaMesa) => {
         throw new Error('Error al agregar mesa');
     }    
 }
+
+export const editarMesaRepository = async (id, mesa) => {
+    try {
+        const mesaEditada = await Mesa.findByIdAndUpdate(id, mesa, { new: true})
+        if (!mesaEditada) {
+            console.log('mesa no encontrada')
+        } else {
+            console.log('Se edito la mesa: ' + id);
+            return mesaEditada;
+            
+        }
+    } catch (error) {
+        console.log('Error en el repo',error)
+        throw new Error('Error al editar la mesa: ' + id + 'en la base de datos');
+
+    }
+    
+}

@@ -1,4 +1,5 @@
-import { getMesasService, agregarMesaService } from "../services/mesa.js";
+import mongoose from "mongoose";
+import { getMesasService, agregarMesaService, editarMesaService } from "../services/mesa.js";
 
 export const getMesasController = async (req,res) => {
     try {
@@ -23,4 +24,23 @@ export const agregarMesaController = async (req, res) => {
         console.error(error);
         return res.status(500).send({ message: 'Error al agregar la mesa' });
     }
+}
+
+export const editarMesaController = async (req, res) => {
+    const { id } = req.params;
+    const mesa = req.body;
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(400).json({mensaje: 'ID invalido'});
+    }
+    try {
+        const mesaActualizada = await editarMesaService(id, mesa);
+        if(!mesaActualizada){
+            return res.status(404).send({ mensaje: `No se encontró ninguna mesa con ID ${id}`})
+           }
+            return res.status(200).send({ mensaje: 'La mesa ha sido editada correctamente', Mesa: mesaActualizada });
+    } catch (error) {
+        res.status(500).send({ mensaje: 'Error al actualizar la mesa', error });
+        
+    }
+
 }
