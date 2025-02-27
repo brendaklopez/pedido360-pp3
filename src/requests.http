@@ -26,11 +26,25 @@ Content-Type: application/json
 GET {{api}}/pedido
 
 ####
-POST {{api}}/pedido
+POST {{api}}/pedido/
 Content-Type: application/json
 
 {
     "mesa":"67ba8fdb67de0878bab5e84b",
     "descripcion": "6 de carne, 2 de pollo y 10 de verdura",
     "total": 12000
+}
+
+######
+DELETE  {{api}}/pedido/67bbb634143b08468434a745
+Content-Type: application/json
+
+######
+PUT {{api}}/pedido/67bfda28eed066bfd61b7674
+Content-Type: application/json
+
+{
+    "mesa":"67ba8fdb67de0878bab5e84b",
+    "descripcion": "6 de carne, 2 de pollo y 8 de verdura",
+    "total": 9000
 }
