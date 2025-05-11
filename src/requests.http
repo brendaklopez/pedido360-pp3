@@ -1,6 +1,7 @@
 @api = http://localhost:3000
 
 
+
 #######mesas###
 GET {{api}}/mesas
 
@@ -10,23 +11,25 @@ POST {{api}}/mesas
 Content-Type: application/json
 
 {
-    "numero": 1
+    "numero": 3
 }
 
 #####
-PUT {{api}}/mesas/67ba8fdb67de0878bab5e84b
+PUT {{api}}/mesas/67c235e320bd6c3ec4d7461f
 Content-Type: application/json
 
 {
-    "numero": 1,
-    "estado": "No disponible"
+    "numero": 3,
+    "estado": "nO disponible"
 }
+
 
 #####
 GET {{api}}/pedido
 
 ####
 POST {{api}}/pedido/
+Authorization: Bearer clave-ultra-se
 Content-Type: application/json
 
 {

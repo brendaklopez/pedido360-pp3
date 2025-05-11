@@ -14,7 +14,11 @@ const express_config = {
     host: process.env.HOST,
 }
 
+const auth_config = {
+    jwt_secret: process.env.JWT_SECRET
+};
 
-export {db_config, express_config};
+
+export {db_config, express_config, auth_config};
 
 

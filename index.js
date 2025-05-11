@@ -5,6 +5,7 @@ import pedidoRoutes from './routes/pedido.js'
 
 
 const app = express();
+import authRoutes from './routes/auth.js';
 
 app.set('port', express_config.port);
 app.set('host', express_config.host);
@@ -12,6 +13,8 @@ app.set('host', express_config.host);
 app.use(express.json());
 app.use(mesasRoutes);
 app.use(pedidoRoutes)
+app.use('/auth', authRoutes);
+
 
 app.listen(app.get('port'), app.get('host'), () => {
     console.log(`Servidor corriendo en 'http://${app.get('host')}:${app.get('port')}`);
