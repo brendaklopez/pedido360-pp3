@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const UsuarioSchema = mongoose.Schema(
     {
-        NOMBRE: {
+        nombre: {
             type: String,
             required: true
         },

@@ -8,7 +8,8 @@ const MesaSchema = mongoose.Schema(
         },
         estado: {
             type: String,
-            default: "disponible"
+            enum: ['libre', 'ocupada', 'reservada', 'mantenimiento'],
+            default: 'libre'
         }
     }
 );
