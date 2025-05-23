@@ -1,0 +1,31 @@
+@api = http://localhost:3000
+
+########## PEDIDOS ##########
+
+### Obtener todos los pedidos
+GET {{api}}/pedido
+
+### Agregar un nuevo pedido
+POST {{api}}/pedido
+Content-Type: application/json
+
+{
+  "mesa": "682fb720b9ac57a504b4a80f",
+  "descripcion": "2 pizzas margarita",
+  "mesero": "682fd05192eba7954ce4f6f1",
+  "total": 1500,
+  "estado": "pendiente"
+}
+
+### Editar un pedido existente
+PUT {{api}}/pedido/6830b5d881811b409becb886
+Content-Type: application/json
+
+{
+  "descripcion": "2 pizzas margarita y 1 limonada",
+  "total": 1800,
+  "estado": "preparando"
+}
+
+### Eliminar un pedido
+DELETE {{api}}/pedido/6830b5cf81811b409becb884
