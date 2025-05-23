@@ -6,9 +6,21 @@ const UsuarioSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        contra: {
+        rol: {
             type: String,
-            required: true
+            enum: ['admin', 'mesero', 'cocinero'],
+            default: 'mesero'
+    },
+    correo: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+        trim: true
+    },
+    contra: {
+        type: String,
+        required: true
         }
     }
 );

@@ -11,6 +11,11 @@ const pedidoSchema = mongoose.Schema(
             type:String,
             required: true
         },
+         mesero: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Usuario',
+      required: true
+    },
         total: Number,
         estado:{
             type: String,
@@ -20,6 +25,8 @@ const pedidoSchema = mongoose.Schema(
         creadoEn:{
             type: Date,
             default:Date.now
-        }   
-    });
+            }
+        },   
+    { timestamps: true }
+    );
 export const Pedido = mongoose.model('Pedido', pedidoSchema)
