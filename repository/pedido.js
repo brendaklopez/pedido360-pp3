@@ -3,17 +3,16 @@ import { connect } from '../database/db.js';
 
 connect();
 
-export const getPedidoRepository = async () => {
+export const getPedidosRepository = async () => {
     try {
-        const pedidos = await Pedido.find().populate('mesa')
-
-        return pedidos
+        return await Pedido.find()
+            .populate('mesa', 'numero estado')
+            .populate('mesero', 'nombre correo rol');
     } catch (error) {
         console.error('Error en el Repositorio: ', error);
         throw new Error('Error en la consulta a la base de datos');
-    
     }
-}
+};
 
 export const agregarPedidosRepository = async (nuevoPedido) => {
     try {
@@ -59,3 +58,26 @@ export const editarPedidoRepository = async (id, pedidoActual) => {
     
     }    
 }
+// Obtener pedidos por estado (ej: pendientes, preparando, etc.)
+export const getPedidosPorEstadoRepository = async (estado) => {
+    try {
+        return await Pedido.find({ estado })
+            .populate('mesa', 'numero estado')
+            .populate('mesero', 'nombre correo rol');
+    } catch (error) {
+        console.error('Error buscando pedidos por estado', error);
+        throw new Error('Error en la consulta de pedidos por estado');
+    }
+};
+
+// Obtener pedidos asignados a un mesero específico
+export const getPedidosPorMeseroRepository = async (idMesero) => {
+    try {
+        return await Pedido.find({ mesero: idMesero })
+            .populate('mesa', 'numero estado')
+            .populate('mesero', 'nombre correo rol');
+    } catch (error) {
+        console.error('Error buscando pedidos por mesero', error);
+        throw new Error('Error en la consulta de pedidos por mesero');
+    }
+};
