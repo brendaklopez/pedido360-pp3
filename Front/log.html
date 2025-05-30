@@ -1,0 +1,48 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="log.css">
+    <title>Pedido360</title>
+</head>
+
+<body>
+<h1>Acceso a Pedido360</h1>
+<h4>Sistemas de gestión para pedidos de restaurantes</h3>
+
+<div class="contenedor">
+<form (ngSubmit)="login()" #inicio="ngForm">
+    <div class="formulario">
+        <p>Nombre de Usuario</p>
+        <input
+        class="casilla"
+        [(ngModel)]="Nombre" 
+        name="Nombre" 
+        required
+        placeholder="Ingresá tu usuario"
+        #nombreInput="ngModel"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+        </input>
+        <p>Contraseña</p>
+        <input
+        class="casilla"
+        type="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        required
+        placeholder="Ingresá tu contraseña"
+        #passwordInput="ngModel"
+        minlength="6">
+        </input>
+    </div>
+</form>
+
+<div>
+    <button (click)="login()">Iniciar sesión</button>
+</div>
+
+<p class="link">
+<a href="../cocina/cocina.html">Volver a la página principal</a>
+</p>
+</div>
+<script src="log.js"></script>
+</body>
