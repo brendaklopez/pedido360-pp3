@@ -1,0 +1,80 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cocina.css">
+    <title>Pedido360</title>
+</head>
+<body>
+    <div class="fondo">
+    <div class="barra-superior">
+        <div class="logo">
+            <img src="../images/logo.png">
+            <p class="titulo">Pedido360</p>
+        </div>  
+        <nav>
+        <a href="../inicio/inicio.html">Inicio</a>
+        <a href="./pedidos/pedidos.html">Pedidos</a>
+        <a href="./menu/menu.html">Menú</a>
+        <a href="./mesas/mesas.html">Mesas</a>
+        <a href="./reportes/reportes.html">Reportes</a>
+        </nav>
+    </div>
+    <div class="contenido">
+        <h1>Bienvenido, cocina</h1>
+        <h4>Gestiona los pedidos de cocina en tiempo real</h4>
+
+        <div class="estados">
+            <div class="pendiente">
+                <div class="card-icon">🕒</div> <div class="card-title">Pendientes</div>
+                <div class="card-number">0</div>
+            </div>
+            <div class="preparando">
+                <div class="card-icon">🔔</div> <div class="card-title">En preparación</div>
+                <div class="card-number">4</div>
+            </div>
+            <div class="listo">
+                <div class="card-icon">✅</div> <div class="card-title">Listos</div>
+                <div class="card-number">7</div>
+            </div>
+        </div>
+    
+        <div class="cola">
+            <h2>Cola de pedidos</h2>
+            <div class="pedido">
+                <div class="orden">
+                    <div class="order-header">
+                        <span class="order-id">#1088</span>
+                        <span class="order-table">Mesa 8</span>
+                        <span class="order-time">12:25</span>
+                        <span class="priority-tag">Prioridad Alta</span>
+                    </div>
+                    <div class="dish-list">
+                        <div class="dish-item">
+                            <span class="dish-quantity">2</span>
+                            <span class="dish-name">Ensalada César</span>
+                            <span class="dish-status status-ready">Listo</span>
+                        </div>
+                        <div class="dish-item">
+                            <span class="dish-quantity">1</span>
+                            <span class="dish-name">Pasta Carbonara</span>
+                            <span class="dish-status status-preparing">Preparando</span>
+                            <span class="status-icon">✔</span> </div>
+                         <div class="dish-item">
+                            <span class="dish-quantity">1</span>
+                            <span class="dish-name">Sin tocino</span>
+                            <span class="dish-status status-in-progress">En proceso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="barra-inferior">
+    <nav>
+        <a href="../login/login.html">Cerrar Cesión</a>
+    </nav>
+    </div>
+    </div>
+</body>
