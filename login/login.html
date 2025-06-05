@@ -14,7 +14,7 @@
             <form class="flex flex-col justify-center w-full mt-6" (ngSubmit)="login()" #inicio="ngForm">
         <div class="formulario">
             <p>Nombre de Usuario</p>
-            <input class="rounded-md p-2 mb-3 border border-gray-300"
+            <input class="rounded-md p-2 mb-3 border border-gray-300 w-full"
             class="casilla"
             [(ngModel)]="Nombre" 
             name="Nombre" 
@@ -24,7 +24,7 @@
             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
             </input>
             <p>Contraseña</p>
-            <input class="rounded-md p-2 mb-3 border border-gray-300"
+            <input class="rounded-md p-2 mb-3 border border-gray-300 w-full"
             class="casilla"
             type="password" 
             [(ngModel)]="password" 
