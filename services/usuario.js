@@ -7,6 +7,21 @@ import {
   eliminarUsuarioRepository
 } from '../repository/usuario.js';
 
+// Login de usuario
+export const loginUsuarioService = async (correo, password) => {
+  const usuario = await getUsuarioByCorreoRepository(correo);
+
+  if (!usuario) {
+    throw new Error("Usuario no encontrado");
+  }
+
+  if (usuario.contra !== password) {
+    throw new Error("Contraseña incorrecta");
+  }
+
+  return usuario;
+};
+
 // Obtener todos los usuarios
 export const listarUsuariosService = async () => {
   return await getUsuariosRepository();

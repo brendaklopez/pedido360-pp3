@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  loginUsuarioController, 
   listarUsuariosController,
   obtenerUsuarioPorIdController,
   obtenerUsuarioPorCorreoController,
@@ -27,5 +28,8 @@ router.put("/usuarios/:id", actualizarUsuarioController);
 
 // Eliminar un usuario por ID
 router.delete("/usuarios/:id", eliminarUsuarioController);
+
+// Login de usuario
+router.post("/usuarios/login", loginUsuarioController);
 
 export default router;

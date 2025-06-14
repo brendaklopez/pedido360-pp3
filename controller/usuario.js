@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import {
+ loginUsuarioService,
   listarUsuariosService,
   obtenerUsuarioPorIdService,
   obtenerUsuarioPorCorreoService,
@@ -8,6 +9,16 @@ import {
   eliminarUsuarioService
 } from '../services/usuario.js';
 
+export const loginUsuarioController = async (req, res) => {
+  const { correo, contra } = req.body;
+
+    try {
+    const usuarioauth = await loginUsuarioService(correo, contra);
+    res.status(200).json({ mensaje: "Login exitoso", usuario: usuarioauth  });
+  } catch (error) {
+    res.status(401).json({ mensaje: error.message });
+  }
+};
 // Obtener todos los usuarios
 export const listarUsuariosController = async (req, res) => {
   try {

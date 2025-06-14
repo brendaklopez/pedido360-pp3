@@ -32,3 +32,12 @@ Content-Type: application/json
 
 ### Eliminar un usuario por ID
 DELETE {{api}}/usuarios/
+
+####
+POST {{api}}/usuarios/login
+Content-Type: application/json
+
+{
+  "correo": "sol.perez@example.com",
+  "contra": "123456"
+}

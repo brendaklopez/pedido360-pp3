@@ -1,48 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Pedido360</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Pedido360 - Login</title>
 </head>
-
 <body class="m0">
-    <div class="bg-[url('../images/fondo.jpg')] bg-cover bg-center h-screen">
-    <div class="bg-white rounded-md p-10 max-w-lg mx-auto shadow-md mt-20">
-        <h1 class="text-center text-2xl font-bold">Acceso a Pedido360</h1>
-        <h4 class="text-left text-gray-900 mt-4">Sistemas de gestión para pedidos de restaurantes</h3>
-        <div class="contenedor">
-            <form class="flex flex-col justify-center w-full mt-6" (ngSubmit)="login()" #inicio="ngForm">
+  <div class="bg-[url('../images/fondo.jpg')] bg-cover bg-center h-screen flex items-center justify-center">
+    <div class="bg-white rounded-md p-10 max-w-lg shadow-md">
+      <h1 class="text-center text-2xl font-bold">Acceso a Pedido360</h1>
+      <h4 class="text-left text-gray-900 mt-4">Sistemas de gestión para pedidos de restaurantes</h4>
+
+      <form id="loginForm" class="flex flex-col justify-center w-full mt-6">
         <div class="formulario">
-            <p>Nombre de Usuario</p>
-            <input class="rounded-md p-2 mb-3 border border-gray-300 w-full"
-            class="casilla"
-            [(ngModel)]="Nombre" 
-            name="Nombre" 
+          <label for="correoInput" class="block mb-1 font-semibold">Correo Electrónico</label>
+          <input
+            id="correoInput"
+            name="correo"
+            type="email"
             required
-            placeholder="Ingresá tu usuario"
-            #nombreInput="ngModel"
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
-            </input>
-            <p>Contraseña</p>
-            <input class="rounded-md p-2 mb-3 border border-gray-300 w-full"
-            class="casilla"
-            type="password" 
-            [(ngModel)]="password" 
-            name="password" 
+            placeholder="Ingresá tu correo electrónico"
+            class="rounded-md p-2 mb-3 border border-gray-300 w-full"
+          />
+
+          <label for="passwordInput" class="block mb-1 font-semibold">Contraseña</label>
+          <input
+            id="passwordInput"
+            name="contra"
+            type="password"
             required
             placeholder="Ingresá tu contraseña"
-            #passwordInput="ngModel"
-            minlength="6">
-            </input>
+            minlength="6"
+            class="rounded-md p-2 mb-3 border border-gray-300 w-full"
+          />
         </div>
-            </form>
-    <div>
-        <button class="w-full text-lg p-2 rounded-md bg-blue-500 text-white border-none" (click)="login()">Iniciar sesión</button>
+
+        <button
+          type="submit"
+          class="w-full text-lg p-2 rounded-md bg-blue-500 text-white border-none"
+        >
+          Iniciar sesión
+        </button>
+      </form>
+
+      <p class="text-center mt-5">
+        <a href="../foro/foro.html" class="text-blue-500 no-underline">Volver a la página principal</a>
+      </p>
     </div>
-    <p class="text-center mt-5">
-    <a href="../foro/foro.html" class="text-blue-500 no-underline">Volver a la página principal</a>
-    </p>
-    </div>
-    </div>
-    </div>
+  </div>
+
+  <script src="./login.js"></script>
 </body>
+</html>
