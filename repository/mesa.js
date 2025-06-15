@@ -18,8 +18,7 @@ export const getMesasRepository = async () => {
 export const agregarMesaRepository = async (nuevaMesa) => {
     try {
         const mesaNueva = new Mesa(nuevaMesa);
-        await mesaNueva.save();
-        console.log(mesaNueva)        
+        await mesaNueva.save();       
     } catch (error) {
         console.error('Error en el Repositorio: ', error);
         throw new Error('Error al agregar mesa');

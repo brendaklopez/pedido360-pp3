@@ -18,7 +18,12 @@ export const agregarPedidosRepository = async (nuevoPedido) => {
     try {
         const pedidoNuevo = new Pedido(nuevoPedido);
         await pedidoNuevo.save();
-
+        
+         const pedidoConDatos = await Pedido.findById(pedidoNuevo._id)
+      .populate('mesa', 'numero')
+      .populate('mesero', 'nombre');
+         return await pedidoConDatos;
+    
     } catch (error) {
         console.error('Error en el Repositorio: ', error);
         throw new Error('Error al agregar los pedidos');

@@ -6,6 +6,7 @@ import {
   getPedidosPorEstadoRepository,
   getPedidosPorMeseroRepository
 } from "../repository/pedido.js";
+import QRCode from 'qrcode';
 
 // Obtener todos los pedidos
 export const getPedidosService = async () => {
@@ -21,7 +22,12 @@ export const getPedidosService = async () => {
 export const agregarPedidoService = async (pedido) => {
   try {
     const pedidoNuevo = await agregarPedidosRepository(pedido);
-    return pedidoNuevo;
+    const urlSeguimiento = `https://tusitio.com/seguimiento/${pedidoNuevo._id}`;
+    const qrCode = await QRCode.toDataURL(urlSeguimiento);
+    return {
+      ...pedidoNuevo.toObject(),
+      qrCode
+    }
   } catch (error) {
     console.error('Error en el Servicio:', error);
     throw new Error('Error al agregar el pedido');

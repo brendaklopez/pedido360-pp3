@@ -39,5 +39,17 @@
     </main>
 
     <script src="./pedidos.js"></script>
+    <!-- Modal para mostrar confirmación del pedido -->
+<div id="modalPedido" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative">
+    <h3 class="text-xl font-bold mb-4 text-blue-900">Pedido creado correctamente</h3>
+    <div id="detallePedido" class="mb-6 text-gray-800">
+      <!-- Aquí se mostrarán los datos del pedido -->
+    </div>
+    <!-- Próximamente aquí va el QR -->
+    <button id="cerrarModal" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl font-bold">&times;</button>
+  </div>
+</div>
+
   </body>
 </html>
