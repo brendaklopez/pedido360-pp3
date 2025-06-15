@@ -19,7 +19,7 @@ const pedidoSchema = mongoose.Schema(
         total: Number,
         estado:{
             type: String,
-            enum:["pendiente", "preparando", "en 15 min estará listo", "listo para servir"],
+            enum:["pendiente", "preparando", "en 10 min", "listo para servir", "entregado"],
             default: "pendiente"
         },
         creadoEn:{

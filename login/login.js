@@ -12,11 +12,27 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     });
 
     const data = await response.json();
+console.log("Respuesta completa del login:", data);
 
     if (response.ok) {
-      alert('¡Login exitoso!');
-      // Podés redirigir a otra página si querés:
-      // window.location.href = '/dashboard.html';
+      const usuario = data.usuario;
+       if (!usuario || !usuario._id) {
+    alert('Error: el servidor no devolvió datos válidos del usuario');
+    return;
+  }
+  localStorage.setItem('usuarioId', usuario._id);
+  localStorage.setItem('usuarioNombre', usuario.nombre);
+  localStorage.setItem('usuarioRol', usuario.rol);
+ 
+     if (usuario.rol === 'mesero') {
+
+        window.location.href = '../mesero/mesero.html';
+      } else {
+        alert(`¡Login exitoso! Rol detectado: ${rol}`);
+        // Podés redirigir a otra página según el rol:
+        // if (data.rol === 'admin') window.location.href = 'admin.html';
+        // if (data.rol === 'cocinero') window.location.href = 'cocinero.html';
+      }
     } else {
       alert(data.mensaje);
     }

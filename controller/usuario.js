@@ -14,7 +14,10 @@ export const loginUsuarioController = async (req, res) => {
 
     try {
     const usuarioauth = await loginUsuarioService(correo, contra);
-    res.status(200).json({ mensaje: "Login exitoso", usuario: usuarioauth  });
+    res.status(200).json({ 
+      mensaje: "Login exitoso",
+       usuario: usuarioauth
+       });
   } catch (error) {
     res.status(401).json({ mensaje: error.message });
   }

@@ -16,6 +16,18 @@ Content-Type: application/json
   "total": 1500,
   "estado": "pendiente"
 }
+###
+POST {{api}}/pedido
+Content-Type: application/json
+
+{
+  "mesa": "682fb720b9ac57a504b4a80f",
+  "descripcion": "2 ñoquis al pesto y 1 vino",
+  "mesero": "682fd05192eba7954ce4f6f1",
+  "total": 2000,
+  "estado": "pendiente"
+}
+
 
 ### Editar un pedido existente
 PUT {{api}}/pedido/6830b5d881811b409becb886
@@ -29,3 +41,6 @@ Content-Type: application/json
 
 ### Eliminar un pedido
 DELETE {{api}}/pedido/6830b5cf81811b409becb884
+
+### Obtener todos los pedidos por mesero
+GET {{api}}/pedido/mesero/682fd05192eba7954ce4f6f1
