@@ -10,7 +10,7 @@ POST {{api}}/pedido
 Content-Type: application/json
 
 {
-  "mesa": "682fb720b9ac57a504b4a80f",
+  "mesa": "682fd352e04fb5a2b154a4eb",
   "descripcion": "2 pizzas margarita",
   "mesero": "682fd05192eba7954ce4f6f1",
   "total": 1500,
