@@ -1,5 +1,6 @@
 'use client';
-import { FaHamburger, FaPizzaSlice, FaLeaf, FaIceCream, FaGlassWhiskey, FaCookie, FaWineGlassAlt, FaWater } from 'react-icons/fa';
+import * as FaIcons from 'react-icons/fa';
+import FloatingBackground from '../../components/FloatingBackground';
 
 interface MenuItem {
   id: string;
@@ -18,7 +19,7 @@ export default function MenuPage() {
       descripcion: 'Carne de res, lechuga, tomate, cebolla y salsa especial',
       precio: 8500,
       categoria: 'Platos Principales',
-      icono: <FaHamburger className="text-4xl text-orange-500" />
+      icono: <FaIcons.FaHamburger className="text-4xl text-orange-500" />
     },
     {
       id: '2',
@@ -26,7 +27,7 @@ export default function MenuPage() {
       descripcion: 'Salsa de tomate, mozzarella, albahaca fresca, tomate',
       precio: 14000,
       categoria: 'Platos Principales',
-      icono: <FaPizzaSlice className="text-4xl text-red-500" />
+      icono: <FaIcons.FaPizzaSlice className="text-4xl text-red-500" />
     },
     {
       id: '3',
@@ -34,7 +35,7 @@ export default function MenuPage() {
       descripcion: 'Lechuga, pollo a la parrilla, crutones, parmesano',
       precio: 8500,
       categoria: 'Entradas',
-      icono: <FaLeaf className="text-4xl text-green-500" />
+      icono: <FaIcons.FaLeaf className="text-4xl text-green-500" />
     },
     {
       id: '4',
@@ -42,7 +43,7 @@ export default function MenuPage() {
       descripcion: 'Postre italiano con café y mascarpone',
       precio: 8500,
       categoria: 'Postres',
-      icono: <FaIceCream className="text-4xl text-pink-500" />
+      icono: <FaIcons.FaIceCream className="text-4xl text-pink-500" />
     },
     {
       id: '5',
@@ -50,7 +51,7 @@ export default function MenuPage() {
       descripcion: 'Limonada fresca con menta',
       precio: 4000,
       categoria: 'Bebidas',
-      icono: <FaGlassWhiskey className="text-4xl text-yellow-500" />
+      icono: <FaIcons.FaGlassWhiskey className="text-4xl text-yellow-500" />
     },
     {
       id: '6',
@@ -58,7 +59,7 @@ export default function MenuPage() {
       descripcion: 'Flan de leche',
       precio: 4000,
       categoria: 'Postres',
-      icono: <FaCookie className="text-4xl text-amber-500" />
+      icono: <FaIcons.FaCookie className="text-4xl text-amber-500" />
     },
     {
       id: '7',
@@ -66,7 +67,7 @@ export default function MenuPage() {
       descripcion: 'Linea Coca Cola',
       precio: 2500,
       categoria: 'Bebidas',
-      icono: <FaWineGlassAlt className="text-4xl text-red-600" />
+      icono: <FaIcons.FaWineGlassAlt className="text-4xl text-red-600" />
     },
     {
       id: '8',
@@ -74,15 +75,16 @@ export default function MenuPage() {
       descripcion: 'Agua mineral',
       precio: 2000,
       categoria: 'Bebidas',
-      icono: <FaWater className="text-4xl text-blue-500" />
+      icono: <FaIcons.FaWater className="text-4xl text-blue-500" />
     }
   ];
 
   const categorias = Array.from(new Set(menuItems.map(item => item.categoria)));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 relative">
+      <FloatingBackground />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h1 className="text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
           Nuestro Menú
         </h1>
