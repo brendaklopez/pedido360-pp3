@@ -5,11 +5,13 @@ import {
   eliminarPedidoController,
   getPedidosController,
   getPedidosPorEstadoController,
-  getPedidosPorMeseroController
+  getPedidosPorMeseroController,
+  obtenerPedidoController
 } from "../controller/pedido.js";
 
 const router = Router();
 
+router.get('/pedido/:id/estado', obtenerPedidoController);
 // Obtener todos los pedidos
 router.get("/pedido", getPedidosController);
 

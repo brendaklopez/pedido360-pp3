@@ -4,7 +4,8 @@ import {
   editarPedidoRepository,
   eliminarPedidoRepository,
   getPedidosPorEstadoRepository,
-  getPedidosPorMeseroRepository
+  getPedidosPorMeseroRepository,
+  obtenerPedidoRepository
 } from "../repository/pedido.js";
 import QRCode from 'qrcode';
 
@@ -18,6 +19,16 @@ export const getPedidosService = async () => {
   }
 };
 
+// Obtener un pedido por su ID (para seguimiento)
+export const obtenerPedidoService = async (id) => {
+  try {
+    const pedido = await obtenerPedidoRepository(id);
+    return pedido;
+  } catch (error) {
+    console.error('Error en el Servicio:', error);
+    throw new Error('Error al obtener el pedido');
+  }
+};
 // Agregar un nuevo pedido
 export const agregarPedidoService = async (pedido) => {
   try {

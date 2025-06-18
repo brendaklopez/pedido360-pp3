@@ -86,3 +86,22 @@ export const getPedidosPorMeseroRepository = async (idMesero) => {
         throw new Error('Error en la consulta de pedidos por mesero');
     }
 };
+// Obtener un pedido por su ID (para seguimiento)
+export const obtenerPedidoRepository = async (id) => {
+  try {
+    const pedido = await Pedido.findById(id)
+      .populate('mesa', 'numero estado')          // solo número y estado de la mesa
+      .populate('mesero', 'nombre correo rol');   // datos útiles del mesero
+
+    if (!pedido) {
+      console.log('Pedido no encontrado');
+      return null;
+    }
+
+    return pedido;
+
+  } catch (error) {
+    console.error('Error en el Repositorio:', error);
+    throw new Error('Error al obtener el pedido de la base de datos');
+  }
+};

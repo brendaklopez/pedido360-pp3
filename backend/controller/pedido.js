@@ -5,8 +5,53 @@ import {
   editarPedidoService,
   eliminarPedidoService,
   getPedidosPorEstadoService,
-  getPedidosPorMeseroService
+  getPedidosPorMeseroService,
+  obtenerPedidoService
 } from "../services/pedido.js";
+
+const formatearHora = (fecha) => {
+  const f = new Date(fecha);
+  return f.toLocaleTimeString('es-AR', {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+};
+
+// Obtener un pedido por ID (para seguimiento)
+export const obtenerPedidoController = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({ mensaje: "ID inválido" });
+  }
+
+  try {
+    const pedido = await obtenerPedidoService(id);
+
+    if (!pedido) {
+      return res.status(404).send({ mensaje: "Pedido no encontrado" });
+    }
+
+    return res.status(200).send({
+      id: pedido._id,
+      descripcion: pedido.descripcion,
+      estadoActual: pedido.estado,
+      creadoEn: pedido.createdAt,
+      total: pedido.total,
+      horas: {
+        recibido: formatearHora (pedido.createdAt) || "--",
+        en_preparacion: pedido.estado === 'preparando' ? formatearHora(pedido.updatedAt) : "--",
+        listo:  pedido.estado === 'listo' ? formatearHora(pedido.updatedAt) : "--",
+        entregado:  pedido.estado === 'entregado' ? formatearHora(pedido.updatedAt) : "--"
+      }
+    });
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ mensaje: "Error al obtener el estado del pedido" });
+  }
+};
+
 
 // Obtener todos los pedidos
 export const getPedidosController = async (req, res) => {

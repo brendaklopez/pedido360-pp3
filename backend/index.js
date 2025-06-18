@@ -7,6 +7,7 @@ import usuarioRoutes from './routes/usuario.js'
 
 const app = express();
 
+
 app.set('port', express_config.port);
 app.set('host', express_config.host);
 

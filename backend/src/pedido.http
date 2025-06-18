@@ -2,6 +2,9 @@
 
 ########## PEDIDOS ##########
 
+GET {{api}}/pedido/6830b5d881811b409becb886/estado
+
+
 ### Obtener todos los pedidos
 GET {{api}}/pedido
 
@@ -30,13 +33,13 @@ Content-Type: application/json
 
 
 ### Editar un pedido existente
-PUT {{api}}/pedido/6830b5d881811b409becb886
+PUT {{api}}/pedido/684e308430703c81f54503e1
 Content-Type: application/json
 
 {
   "descripcion": "2 pizzas margarita y 1 limonada",
   "total": 1800,
-  "estado": "preparando"
+  "estado": "en 10 min"
 }
 
 ### Eliminar un pedido
