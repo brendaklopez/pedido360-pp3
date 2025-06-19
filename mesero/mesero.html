@@ -2,24 +2,23 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Pedido360</title>
   </head>
-  <body class="bg-[url('/images/fondo.jpg')] bg-cover bg-center min-h-screen flex flex-col font-sans">
+  <body class="bg-[url('../images/fondo.jpg')] bg-cover bg-center min-h-screen flex flex-col font-sans">
 
     <!-- Barra superior fija -->
-    <header class="bg-blue-600 text-white fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 shadow-lg z-10">
+    <header class="bg-blue-400 text-white fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 shadow-lg z-10">
       <div class="flex items-center gap-3">
-        <img src="/images/logo.png" alt="Logo Pedido360" class="h-10 w-10 rounded-full shadow-md" />
+        <img src="../images/logo.png" alt="Logo Pedido360" class="h-10 w-10 rounded-full shadow-md"/>
         <p class="text-white font-extrabold text-xl tracking-wide">Pedido360</p>
       </div>
       <nav class="space-x-6 text-sm font-medium">
-        <a href="/inicio/inicio.html" class="hover:underline transition">Inicio</a>
-        <a href="/pedidos/pedidos.html" class="hover:underline transition">Pedidos</a>
-        <a href="/menu/menu.html" class="hover:underline transition">Menú</a>
-        <a href="/mesas/mesas.html" class="hover:underline transition">Mesas</a>
-        <a href="/reportes/reportes.html" class="hover:underline transition">Reportes</a>
+        <a href="../mesero/mesero.html" class="hover:underline transition">Inicio</a>
+        <a href="../pedidos/pedidos.html" class="hover:underline transition">Pedidos</a>
+        <a href="../menu/menu.html" class="hover:underline transition">Menú</a>
+        <a href="../mesas/mesas.html" class="hover:underline transition">Mesas</a>
+        <a href="../reportes/reportes.html" class="hover:underline transition">Reportes</a>
       </nav>
     </header>
 
@@ -28,7 +27,7 @@
       <!-- Bienvenida -->
       <section class="mb-10">
         <h1 class="text-3xl font-bold text-center text-blue-900 bg-blue-100 p-6 rounded-xl shadow-md">
-          ¡Bienvenido al sistema de pedidos!
+          ¡Bienvenido, mesero!
         </h1>
     
       </section>
@@ -64,7 +63,7 @@
 </h2>
         <div class="overflow-x-auto rounded-lg shadow-md">
           <table class="min-w-full bg-white text-sm text-gray-800">
-            <thead class="bg-blue-600 text-white">
+            <thead class="bg-blue-400 text-white">
               <tr>
                 <th class="px-6 py-3 text-left font-semibold tracking-wide">#</th>
                 <th class="px-6 py-3 text-left font-semibold tracking-wide">Mesa</th>
@@ -81,8 +80,8 @@
     </main>
 
     <!-- Barra inferior fija -->
-    <footer class="bg-blue-600 text-white fixed bottom-0 left-0 w-full flex justify-end items-center p-3 shadow-inner z-10">
-      <a href="/login/login.html" class="hover:underline mx-6 text-sm font-medium">Cerrar sesión</a>
+    <footer class="bg-blue-400 text-white fixed bottom-0 left-0 w-full flex justify-end items-center p-3 shadow-inner z-10">
+      <a href="../login/login.html" class="hover:underline mx-6 text-sm font-medium">Cerrar sesión</a>
     </footer>
     <script src="./mesero.js"></script>
   </body>

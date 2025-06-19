@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nuevo Pedido</title>
+    <title>Pedido360</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center px-4">
-
-    <main class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full mt-20">
-      <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">Crear nuevo pedido</h1>
-
-      <!-- Mensaje de éxito -->
-      <div id="mensajeExito" class="hidden mb-4 p-4 bg-green-100 text-green-800 rounded-md text-center">
+</head>
+<body class="bg-[url('../images/fondo.jpg')] bg-cover bg-center min-h-screen flex flex-col font-sans">
+    <header class="bg-blue-400 text-white fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 shadow-lg z-10">
+      <div class="flex items-center gap-3">
+        <img src="../images/logo.png" alt="Logo Pedido360" class="h-10 w-10 rounded-full shadow-md"/>
+        <p class="text-white font-extrabold text-xl tracking-wide">Pedido360</p>
+      </div>
+    </header>
+      <main class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full mt-40 mx-auto">
+      <h1 class="text-2xl font-bold text-blue-400 mb-6 text-center">Crear nuevo pedido</h1>
+    <!-- Mensaje de éxito -->
+    <div id="mensajeExito" class="hidden mb-4 p-4 bg-green-100 text-green-800 rounded-md text-center">
         ✅ ¡Pedido creado correctamente!
+    </div>
+      <!-- Formulario -->
+    <form id="formPedido" class="space-y-4">
+      <div>
+        <label for="mesa" class="block text-sm font-medium text-gray-700">Mesa</label>
+        <select id="mesa" name="mesa" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+            <!-- Opciones dinámicas -->
+        </select>
+      </div>
+      <div>
+        <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="3" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required></textarea>
       </div>
 
-      <!-- Formulario -->
-      <form id="formPedido" class="space-y-4">
-        <div>
-          <label for="mesa" class="block text-sm font-medium text-gray-700">Mesa</label>
-          <select id="mesa" name="mesa" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-            <!-- Opciones dinámicas -->
-          </select>
-        </div>
-
-        <div>
-          <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-          <textarea id="descripcion" name="descripcion" rows="3" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required></textarea>
-        </div>
-
-        <div class="flex justify-center">
-          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <div class="flex justify-center">
+        <button type="submit" class="bg-blue-400 hover:bg-teal-500 text-white font-bold py-2 px-4 rounded">
             Crear Pedido
-          </button>
-        </div>
-      </form>
-    </main>
-
-    <script src="./pedidos.js"></script>
-  </body>
+        </button>
+      </div>
+    </form>
+      </main>
+      <!-- Modal para mostrar confirmación del pedido -->
+    <div id="modalPedido" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative">
+      <h3 class="text-xl font-bold mb-4 text-blue-900">Pedido creado correctamente</h3>
+    <div id="detallePedido" class="mb-6 text-gray-800">
+      <!-- Aquí se mostrarán los datos del pedido -->
+    </div>
+    <!-- Próximamente aquí va el QR -->
+      <button id="cerrarModal" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl font-bold">&times;</button>
+    </div>
+    </div>
+  <script src="./pedidos.js"></script>
+</body>
 </html>

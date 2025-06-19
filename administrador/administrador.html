@@ -4,43 +4,74 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Pedido360</title>
 </head>
-<body>
-    <div class="bg-[url('../images/fondo.jpg')] bg-cover bg-center h-screen">
-    <div class="bg-blue-500 text-white fixed top-0 left-0 w-full flex justify-between items-center p-4">
-        <div flex items-center>
-            <img src="../images/logo.png" class="h-9 w-9">
-            <p class="text-black font-bold text-lg ml-2">Pedido360</p>
-        </div>  
-        <nav>
-        <a href="../inicio/inicio.html" class="text-white no-underline mx-2">Inicio</a>
-        <a href="./pedidos/pedidos.html" class="text-white no-underline mx-2">Pedidos</a>
-        <a href="./menu/menu.html" class="text-white no-underline mx-2">Menú</a>
-        <a href="./mesas/mesas.html" class="text-white no-underline mx-2">Mesas</a>
-        <a href="./reportes/reportes.html" class="text-white no-underline mx-2">Reportes</a>
-        </nav>
-    </div>
-    <div class="mt-16 mx-12">
-        <h1 class="text-left text-xl">Bienvenido, administrador</h1>
-        <h4 class="text-left text-gray-900 mt-4">Gestiona los pedidos de cocina en tiempo real</h4>
+<body class="bg-[url('../images/fondo.jpg')] bg-cover bg-center min-h-screen flex flex-col font-sans">
+    <header class="bg-blue-400 text-white fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 shadow-lg z-10">
+      <div class="flex items-center gap-3">
+        <img src="../images/logo.png" alt="Logo Pedido360" class="h-10 w-10 rounded-full shadow-md"/>
+        <p class="text-white font-extrabold text-xl tracking-wide">Pedido360</p>
+      </div>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="../mesero/mesero.html" class="hover:underline transition">Inicio</a>
+        <a href="../pedidos/pedidos.html" class="hover:underline transition">Pedidos</a>
+        <a href="../menu/menu.html" class="hover:underline transition">Menú</a>
+        <a href="../mesas/mesas.html" class="hover:underline transition">Mesas</a>
+        <a href="../reportes/reportes.html" class="hover:underline transition">Reportes</a>
+      </nav>
+    </header>
+    <!-- Contenido principal -->
+    <main class="flex-grow mt-24 px-6 md:px-12 max-w-7xl mx-auto w-full pb-32">
+      <!-- Bienvenida -->
+      <section class="mb-10">
+        <h1 class="text-3xl font-bold text-center text-blue-900 bg-blue-100 p-6 rounded-xl shadow-md">
+          ¡Bienvenido, administrador!
+        </h1>
+    
+      </section>
 
-        <div class="flex justify-between items-center mt-8">
-            <div class="bg-white shadow-md w-4/5 m-5 p-5 rounded-lg">
-                <div class="card-icon">🕒</div> <div class="card-title">Pendientes</div>
-                <div class="card-number">0</div>
-            </div>
-            <div class="bg-white shadow-md w-4/5 m-5 p-5 rounded-lg">
-                <div class="card-icon">🔔</div> <div class="card-title">En preparación</div>
-                <div class="card-number">4</div>
-            </div>
-            <div class="bg-white shadow-md w-4/5 m-5 p-5 rounded-lg">
-                <div class="card-icon">✅</div> <div class="card-title">Listos</div>
-                <div class="card-number">7</div>
-            </div>
+      <!-- Tarjetas resumen -->
+      <section class="flex flex-wrap gap-6 justify-center mb-16">
+        <article class="bg-white shadow-lg w-64 p-6 rounded-2xl flex flex-col items-center transition hover:scale-105 hover:shadow-xl duration-300">
+          <div class="text-5xl mb-3">🗂️</div>
+          <p class="text-gray-700 font-semibold mb-1" >Pedidos hoy</p>
+          <p class="text-3xl font-bold text-blue-700"id="contadorPendientes">14</p>
+        </article>
+        <article class="bg-white shadow-lg w-64 p-6 rounded-2xl flex flex-col items-center transition hover:scale-105 hover:shadow-xl duration-300">
+          <div class="text-5xl mb-3">⚖️</div>
+          <p class="text-gray-700 font-semibold mb-1" >Tiempo promedio</p>
+          <p class="text-3xl font-bold text-yellow-500" id="contadorPreparacion">15min</p>
+        </article>
+        <article class="bg-white shadow-lg w-64 p-6 rounded-2xl flex flex-col items-center transition hover:scale-105 hover:shadow-xl duration-300">
+          <div class="text-5xl mb-3">📊</div>
+          <p class="text-gray-700 font-semibold mb-1" >Satisfacción</p>
+          <p class="text-3xl font-bold text-orange-600" id="contadorYaCasi">90%</p>
+        </article>
+        <article class="bg-white shadow-lg w-64 p-6 rounded-2xl flex flex-col items-center transition hover:scale-105 hover:shadow-xl duration-300">
+          <div class="text-5xl mb-3">🎚️</div>
+          <p class="text-gray-700 font-semibold mb-1" >Mesas activas</p>
+          <p class="text-3xl font-bold text-green-600" id="contadorListos">23/30</p>
+        </article>
+      </section>
+      <section>
+        <h2 class="text-2xl font-bold mb-4 text-blue-900 bg-blue-100 px-4 py-2 rounded-lg shadow-md w-fit">
+  Gestión de usuarios
+</h2>
+        <div class="overflow-x-auto rounded-lg shadow-md">
+          <table class="min-w-full bg-white text-sm text-gray-800">
+            <thead class="bg-blue-400 text-white">
+              <tr>
+                <th class="px-6 py-3 text-left font-semibold tracking-wide">Usuario</th>
+                <th class="px-6 py-3 text-left font-semibold tracking-wide">Rol</th>
+                <th class="px-6 py-3 text-left font-semibold tracking-wide">Último Acceso</th>
+                <th class="px-6 py-3 text-left font-semibold tracking-wide">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoTablaPedidos">
+              <!-- Filas insertadas dinámicamente -->
+            </tbody>
+          </table>
         </div>
-    <div class="bg-blue-500 text-white fixed bottom-0 left-0 w-full flex justify-between items-center p-2">
-    <nav>
-        <a href="../login/login.html" class="text-white no-underline mx-2">Cerrar Cesión</a>
-    </nav>
-    </div>
-    </div>
+      </section>
+    <footer class="bg-blue-400 text-white fixed bottom-0 left-0 w-full flex justify-end items-center p-3 shadow-inner z-10">
+      <a href="../login/login.html" class="hover:underline mx-6 text-sm font-medium">Cerrar sesión</a>
+    </footer>
 </body>

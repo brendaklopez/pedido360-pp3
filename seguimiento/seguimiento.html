@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido360</title>
+  <link rel="stylesheet" href="seguimiento.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[url('../images/fondo.jpg')] bg-cover bg-center min-h-screen flex flex-col font-sans">
+  <header class="bg-blue-400 text-white fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 shadow-lg z-10">
+      <div class="flex items-center gap-3">
+        <img src="../images/logo.png" alt="Logo Pedido360" class="h-10 w-10 rounded-full shadow-md"/>
+        <p class="text-white font-extrabold text-xl tracking-wide">Pedido360</p>
+      </div>
+  </header>
+    <div class="tracking-container">
+    <div class="tracking-title">Seguimiento del Pedido</div>
+    <div id="pedido-info" class="info-box">
+    <!-- Aquí se cargan los detalles del pedido -->
+    </div>
+    <div class="timeline" id="timeline">
+    </div>
+    </div>
+    <script src="seguimiento.js"></script>
+</body>
+</html>
