@@ -22,12 +22,58 @@ if (!pedidoId) {
    })
     .then(data => {
       infoBox.innerHTML = `
-  <p><strong>ID del pedido:</strong> ${data.id}</p>
-  <p><strong>Estado actual:</strong> ${data.estadoActual}</p>
-  <p><strong>Fecha de creación:</strong> ${new Date(data.creadoEn).toLocaleString('es-AR')}</p>
-  <p><strong>Descripción:</strong> ${data.descripcion}</p>
-  <p><strong>Total:</strong> $${data.total}</p>
-  `; 
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-sm font-bold">#</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">ID del pedido</p>
+              <p class="font-semibold text-gray-800">${data.id}</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
+            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">📊</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">Estado actual</p>
+              <p class="font-semibold text-gray-800">${data.estadoActual}</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
+            <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">📅</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">Fecha de creación</p>
+              <p class="font-semibold text-gray-800">${new Date(data.creadoEn).toLocaleString('es-AR')}</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-3 p-3 bg-orange-50 rounded-lg">
+            <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">📝</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">Descripción</p>
+              <p class="font-semibold text-gray-800">${data.descripcion}</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-3 p-3 bg-red-50 rounded-lg">
+            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">💰</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">Total</p>
+              <p class="font-semibold text-gray-800">$${data.total}</p>
+            </div>
+          </div>
+        </div>
+      `;
 
       const { estadoActual, horas } = data;
 
